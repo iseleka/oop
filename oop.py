@@ -166,6 +166,41 @@ print(student1.average_grade() > student2.average_grade())
 print(lecturer1.average_grade() > lecturer2.average_grade())
 
 
+def average_hw_grade(students, course):
+    total_grades = 0
+    total_count = 0
+    for student in students:
+        if course in student.grades:
+            total_grades += sum(student.grades[course])
+            total_count += len(student.grades[course])
+    if total_count == 0:
+        return 0
+    return round(total_grades / total_count, 2)
+
+
+def average_lecture_grade(lecturers, course):
+    total_grades = 0
+    total_count = 0
+    for lecturer in lecturers:
+        if course in lecturer.lecturer_grades:
+            total_grades += sum(lecturer.lecturer_grades[course])
+            total_count += len(lecturer.lecturer_grades[course])
+    if total_count == 0:
+        return 0
+    return round(total_grades / total_count, 2)
+
+
+course_name = 'Python'
+students = [student1, student2]
+lecturers = [lecturer1, lecturer2]
+
+average_hw = average_hw_grade(students, course_name)
+average_lecture = average_lecture_grade(lecturers, course_name)
+
+print(f'Средняя оценка за домашние задания по курсу "{course_name}": {average_hw}')
+print(f'Средняя оценка за лекции по курсу "{course_name}": {average_lecture}')
+
+
 
 
 
