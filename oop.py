@@ -23,7 +23,7 @@ class Student(Mentor):
         else:
             return 'Ошибка'
         
-        course in self.courses_in_progress
+
 
 # print(some_student)
 # Имя: Ruoy
@@ -141,7 +141,29 @@ print(cool_reviewer)
 print(cool_lecturer)
 print(best_student)
 
+student1 = Student('John', 'Doe', 'Мужской')
+student1.courses_in_progress += ['Python', 'Git']
+student1.finished_courses += ['Введение в программирование']
+student1.grades = {'Python': [9, 8], 'Git': [10, 9]}
 
+student2 = Student('Alice', 'Smith', 'Женский')
+student2.courses_in_progress += ['Python', 'JavaScript']
+student2.finished_courses += ['Английский']
+student2.grades = {'Python': [10, 9], 'JavaScript': [8, 7]}
+
+
+
+lecturer1 = Lecturer('John', 'Doe')
+lecturer1.lecturer_courses += ['Python']
+lecturer1.lecturer_grades = {'Python': [9, 10]}
+
+lecturer2 = Lecturer('Alice', 'Smith')
+lecturer2.lecturer_courses += ['Python', 'JavaScript']
+lecturer2.lecturer_grades = {'Python': [10, 9], 'JavaScript': [8, 7]}
+
+print(student1.average_grade() > student2.average_grade())
+
+print(lecturer1.average_grade() > lecturer2.average_grade())
 
 
 
